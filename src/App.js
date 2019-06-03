@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
+import SearchDetails from "./components/searchDetails";
+import RepoDetail from "./components/repoDetail"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <div>
+        <Navbar></Navbar> 
+        <Route exact path="/" component={SearchDetails} /> 
+        <Route exact path="/:user" component={RepoDetail} /> 
+      </div>
+    </Router>
+    // <div className="App">
+    //     <Navbar></Navbar>
+    //     <div style={userDetails}>
+    //         <SearchDetails></SearchDetails>
+    //     </div>
+    // </div>
   );
 }
 
+const userDetails={
+  width: "80%",
+  margin: 'auto',
+  marginTop:"100px",
+  display: "-webkit-inline-box"
+}
 export default App;
