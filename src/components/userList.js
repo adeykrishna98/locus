@@ -9,43 +9,36 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
 class UserList extends React.Component{
+
+    
     render(){
         let data = this.props.userlist;
+        console.log(data)
         let tablerow;
         if(data.users){
-            console.log(data.users.items)
-            tablerow = data.users.items.map(item=>{
+            console.log(data.users)
+            tablerow = data.users.map(item=>{
                 return(
-                    <TableRow key={item.login}>
-                        <TableCell align="left">{item.login}</TableCell>
-                        <TableCell align="right">
-                        <Typography>
-                    <Link href={item.login} >
-                    {item.repos_url}
-                    </Link>
-      
-          </Typography>
-                            
-                            
-                           </TableCell>
-                    </TableRow>
+                    <li style={listSt} key={item.id}>
+                         {item.id}
+                         <br/>
+                        {item.name}
+                        <br/>
+                        {item.address}
+                        <br/>
+                        {item.pincode}
+                    </li>
                 )
             })
         }
         return(
             <div style={userlist}>
-                Searched user list
-                <Table >
-                    <TableHead>
-                    <TableRow>
-                        <TableCell>Username</TableCell>
-                        <TableCell align="right">Url Link</TableCell>
-                    </TableRow>
-                    </TableHead>
-                    <TableBody>
+                {data.users?
+                   
+                    <ul>
                         {tablerow}
-                    </TableBody>
-                </Table>
+                    </ul>
+                    :null}
             </div>
         )
     }
@@ -53,6 +46,16 @@ class UserList extends React.Component{
 
 const userlist ={
     width:"60%"
+}
+const listSt ={
+    listStyle:"none",
+    marginBottom: '10px',
+    background: '#efeeee',
+    paddingLeft: '24px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+    boxShadow: '1px 1px 1px grey',
+    borderRadius: '12px'
 }
 const mapstateToProps = state=>{
     return{

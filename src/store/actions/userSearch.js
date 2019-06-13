@@ -25,13 +25,22 @@ export const searchUserError = (error)=>{
     }
 }
 
+
+  
 export const searchuser =(userdata)=>{
     return dispatch =>{
         dispatch(searchUserStart());
-        axios.get(`https://api.github.com/search/users?q=${userdata}`)
+        axios.get(`http://www.mocky.io/v2/5ba8efb23100007200c2750c`)
         .then(response=>{
-            dispatch(searchUserSuccess(response.data));
-            console.log(response)
+            console.log(response.data,">>>>>")
+            var newArray = []
+            for(let i=0;i<response.data.length;i++){
+                if(response.data[i].name.includes(userdata)){
+                    newArray.push(response.data[i])
+                }
+            }
+            dispatch(searchUserSuccess(newArray));
+           
         })
         .catch(error=>{
            dispatch(searchUserError(error))

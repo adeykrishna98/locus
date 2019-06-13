@@ -19,11 +19,11 @@ class Navbar extends Component{
             <div>
                 <AppBar>
                     <Toolbar>
-                        <Typography>
-                            Adjetter
+                        <Typography style={topogra}>
+                            locus
                         </Typography>
                         <div style={searchbar}>
-                        <Input style={search} placeholder="search github username" onChange={(event)=>this.searchhandler(event)} />
+                        <Input style={search} placeholder="search name" onChange={(event)=>this.searchhandler(event)} />
                         </div>
                         
                     </Toolbar>
@@ -34,10 +34,12 @@ class Navbar extends Component{
 }
 
 
-
+const topogra ={
+    marginLeft:"200px"
+}
 const searchbar ={
     display:"block",
-    marginLeft:"70%"
+    marginLeft:"40%"
 }
 const search ={
    

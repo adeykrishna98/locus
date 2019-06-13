@@ -1,13 +1,12 @@
 import React from "react";
 import UserList from "./userList";
-import Saveduser from "./savedUser";
+
 
 
 const SearchDetails = ()=>{
     return (
         <div style={userDetails}>
         <UserList></UserList>
-        <Saveduser></Saveduser>
         </div>
     )
 }
@@ -18,6 +17,6 @@ const userDetails={
     margin: 'auto',
     marginTop:"100px",
     display: "-webkit-inline-box",
-    marginLeft: "10%"
+    marginLeft: "14%"
   }
 export default SearchDetails;
